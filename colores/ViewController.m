@@ -45,16 +45,16 @@ NSInteger valSlider= 0;
 
 - (IBAction)countSlider2:(id)sender {
     
-   i=0;
+   i=1;
    valSlider=0;
     
     valSlider= self.countSlider.value;
     self.lblSegundos.text = [[NSNumber numberWithFloat:valSlider] stringValue];
-    valSlider=valSlider-1;
+   // valSlider=valSlider-1;
 
     //for (int cnt=1; cnt<=valSlider; cnt++) {
     countTime = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(starCountTime:) userInfo:nil repeats:YES];
-  //  [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(showTime) userInfo:nil repeats:YES];
+  // [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(showTime) userInfo:nil repeats:YES];
     
     
 }
@@ -65,20 +65,19 @@ NSInteger valSlider= 0;
 }
 
 
--(void)starCountTime:(NSTimer *) countTime { i=i+1;
+-(void)starCountTime:(NSTimer *) countTime {
     self.lblTime.text = [[NSNumber numberWithInt:i]stringValue];
-    
-    
-    if ( valSlider >= i) {
+    if ( valSlider > i) {
       [ self showHideView];
     }
     else
     {
         [countTime invalidate];
         countTime = nil;
-        self.lblTime.text=@"Fin de la animacion";
+       // self.lblTime.text=@"Fin de la animacion";
         
     }
+    i=i+1;
 }
 
 -(void) showHideView{
